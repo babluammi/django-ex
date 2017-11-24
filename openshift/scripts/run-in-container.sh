@@ -15,21 +15,21 @@
 
 # Usage examples:
 #
-#     ./run-in-container.sh ./manage.py migrate
-#     ./run-in-container.sh ./manage.py createsuperuser
-#     ./run-in-container.sh ./manage.py shell
+#     ./run-in-container.sh ./new.py migrate
+#     ./run-in-container.sh ./new.py createsuperuser
+#     ./run-in-container.sh ./new.py shell
 #
 # If your Python pods are labeled with a name other than "django", you can use:
 #
-#     POD_NAME=name ./run-in-container.sh ./manage.py check
+#     POD_NAME=name ./run-in-container.sh ./new.py check
 #
 # If there is more than one replica, you can also specify a POD by index:
 #
-#     POD_INDEX=1 ./run-in-container.sh ./manage.py shell
+#     POD_INDEX=1 ./run-in-container.sh ./new.py shell
 #
 # Or both together:
 #
-#     POD_NAME=frontend POD_INDEX=2 ./run-in-container.sh ./manage.py shell
+#     POD_NAME=frontend POD_INDEX=2 ./run-in-container.sh ./new.py shell
 
 
 # Get name of a currently deployed pod by label and index

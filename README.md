@@ -13,7 +13,7 @@ This is a minimal Django 1.11 project. It was created with these steps:
 3. `pip freeze > requirements.txt`
 4. `django-admin startproject project .`
 3. Update `project/settings.py` to configure `SECRET_KEY`, `DATABASE` and `STATIC_ROOT` entries
-4. `./manage.py startapp welcome`, to create the welcome page's app
+4. `./new.py startapp welcome`, to create the welcome page's app
 
 From this initial state you can:
 * create new Django apps
@@ -24,7 +24,7 @@ From this initial state you can:
 
 ## Special files in this repository
 
-Apart from the regular files created by Django (`project/*`, `welcome/*`, `manage.py`), this repository contains:
+Apart from the regular files created by Django (`project/*`, `welcome/*`, `new.py`), this repository contains:
 
 ```
 openshift/         - OpenShift-specific files
@@ -67,11 +67,11 @@ To run this project in your development machine, follow these steps:
 
 5. Create a development database:
 
-    `./manage.py migrate`
+    `./new.py migrate`
 
 6. If everything is alright, you should be able to start the Django development server:
 
-    `./manage.py runserver`
+    `./new.py runserver`
 
 7. Open your browser and go to http://127.0.0.1:8000, you will be greeted with a welcome page.
 
@@ -187,22 +187,22 @@ Related GitHub issues:
 
 The wrapper script combines the steps above into one. You can use it like this:
 
-    ./run-in-container.sh ./manage.py migrate          # manually migrate the database
+    ./run-in-container.sh ./new.py migrate          # manually migrate the database
                                                        # (done for you as part of the deployment process)
-    ./run-in-container.sh ./manage.py createsuperuser  # create a user to access Django Admin
-    ./run-in-container.sh ./manage.py shell            # open a Python shell in the context of your app
+    ./run-in-container.sh ./new.py createsuperuser  # create a user to access Django Admin
+    ./run-in-container.sh ./new.py shell            # open a Python shell in the context of your app
 
 If your Django pods are labeled with a name other than "django", you can use:
 
-    POD_NAME=name ./run-in-container.sh ./manage.py check
+    POD_NAME=name ./run-in-container.sh ./new.py check
 
 If there is more than one replica, you can also specify a POD by index:
 
-    POD_INDEX=1 ./run-in-container.sh ./manage.py shell
+    POD_INDEX=1 ./run-in-container.sh ./new.py shell
 
 Or both together:
 
-    POD_NAME=django-example POD_INDEX=2 ./run-in-container.sh ./manage.py shell
+    POD_NAME=django-example POD_INDEX=2 ./run-in-container.sh ./new.py shell
 
 
 ## Data persistence
